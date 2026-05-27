@@ -10,25 +10,21 @@ public class BubbleSort extends SortAlgorithm {
   }
 
   @Override
-  public int[] reorder(int[] array) {
-    int[] arrayCopy = array.clone();
-
+  public void reorder(int[] array) { 
     boolean isSorted = false;
     while (!isSorted) {
 
       isSorted = true;
-      for (int i = 0; i < arrayCopy.length - 1; i++) {
-        int current = arrayCopy[i];
-        int next = arrayCopy[i + 1];
+      for (int i = 0; i < array.length - 1; i++) {
+        int current = array[i];
+        int next = array[i + 1];
 
         if (current > next) {
-          exchange(arrayCopy, i, i + 1);
+          exchange(array, i, i + 1);
           isSorted = false;
         }
       }
     }
-
-    return arrayCopy;
   }
 
   // @Override
