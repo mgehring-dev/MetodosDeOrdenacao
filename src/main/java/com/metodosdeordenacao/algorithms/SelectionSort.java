@@ -1,7 +1,6 @@
 package com.metodosdeordenacao.algorithms;
 
 import com.metodosdeordenacao.SortAlgorithm;
-import com.metodosdeordenacao.SortResult;
 
 public class SelectionSort extends SortAlgorithm {
 
