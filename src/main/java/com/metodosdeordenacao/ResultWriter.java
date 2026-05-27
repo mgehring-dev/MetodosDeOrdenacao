@@ -13,7 +13,11 @@ public class ResultWriter {
     private final List<Result> results = new ArrayList<>();
 
     public void addResult(String cenario, String algoritmo, int tamanho, long tempoNs) {
-        results.add(new Result(cenario, algoritmo, tamanho, tempoNs));
+        results.add(new Result(cenario, algoritmo, tamanho, tempoNs, null));
+    }
+
+    public void addResult(String cenario, String algoritmo, int tamanho, long tempoNs, String erro) {
+        results.add(new Result(cenario, algoritmo, tamanho, tempoNs, erro));
     }
 
     public void writeMarkdown(Path path) throws IOException {
@@ -64,6 +68,9 @@ public class ResultWriter {
     private String findTempo(String cenario, String algoritmo, int tamanho) {
         for (Result r : results) {
             if (r.cenario.equals(cenario) && r.algoritmo.equals(algoritmo) && r.tamanho == tamanho) {
+                if (r.erro != null) {
+                    return r.erro;
+                }
                 return String.format("%d ns", r.tempoNs);
             }
         }
@@ -75,12 +82,14 @@ public class ResultWriter {
         final String algoritmo;
         final int tamanho;
         final long tempoNs;
+        final String erro;
 
-        Result(String cenario, String algoritmo, int tamanho, long tempoNs) {
+        Result(String cenario, String algoritmo, int tamanho, long tempoNs, String erro) {
             this.cenario = cenario;
             this.algoritmo = algoritmo;
             this.tamanho = tamanho;
             this.tempoNs = tempoNs;
+            this.erro = erro;
         }
     }
 }

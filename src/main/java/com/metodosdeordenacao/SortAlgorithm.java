@@ -8,11 +8,15 @@ public abstract class SortAlgorithm {
   protected SortResult sort(int[] array) {
     int[] arrayCopy = array.clone();
 
-    long start = System.nanoTime();
-    reorder(arrayCopy);
-    long elapsed = System.nanoTime() - start;
+    try {
+      long start = System.nanoTime();
+      reorder(arrayCopy);
+      long elapsed = System.nanoTime() - start;
 
-    return new SortResult(elapsed, arrayCopy);
+      return new SortResult(elapsed, arrayCopy);
+    } catch (StackOverflowError e) {
+      return new SortResult(0, arrayCopy, "StackOverflowError");
+    }
   }
 
   protected static void exchange(int[] a, int i, int j) {

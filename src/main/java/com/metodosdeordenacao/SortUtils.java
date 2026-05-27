@@ -27,4 +27,13 @@ public class SortUtils {
         }
         return array;
     }
+
+    public static int[] gerarAleatorioComRepeticao(int tamanho) {
+        Random random = new Random(42);
+        int[] array = new int[tamanho];
+        for (int i = 0; i < tamanho; i++) {
+            array[i] = random.nextInt(tamanho / 2);
+        }
+        return array;
+    }
 }
