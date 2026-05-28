@@ -1,17 +1,15 @@
-## 1 Implementar métodos:
-- Bubble Sort
-- Insertion Sort
-- Selection Sort
-- Heap Sort
-- Shell Sort
-- Merge Sort
-- Quick Sort
+## Como rodar
 
-## 2 Criar os cenários de teste
-### Para cada algoritmo, devem ser gerados arrays em 4 situações diferentes:
+### Pré-requisitos
 
-- Array ordenado em ordem crescente, sem valores repetidos
-- Array ordenado em ordem decrescente, sem valores repetidos
-- Array aleatória sem valores repetidos
-- Array aleatória com valores repetidos
+- [Java JDK 17+](https://adoptium.net/)
+- [VS Code](https://code.visualstudio.com/)
+- Extensão **Extension Pack for Java** (Microsoft) no VS Code
 
+### Passos no VS Code
+
+1. Abra a pasta do projeto no VS Code (`File > Open Folder`)
+2. Aguarde o VS Code reconhecer o projeto Maven e baixar as dependências
+3. Abra o arquivo `src/main/java/com/metodosdeordenacao/App.java`
+4. Clique em **Run** (▶) que aparece acima do método `main`
+5. Os resultados serão salvos no arquivo `resultados.md` na raiz do projeto
